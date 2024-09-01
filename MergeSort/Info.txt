@@ -1,0 +1,46 @@
+algo:
+  1] Split array A[1....n] in two and make copies of each half in arrays B[1...n/2] and C[1...n/2]
+  2] Sort arrays B and C
+  3] Merge sorted arrays B & C into array A as follows :
+      I) Repeat following until unit.no of elements remain in in one of the arrays :
+          a] Compare first elements in the unprocessed portions of the array
+          b] Copy the smaller of the two into A while incrementing the index indicating the unprocessed portion of that array
+      II) Once all elements in one of the arrays are processed .Copy the remaining elements from other Array into A
+
+
+Time Complexity:
+    O(nlogn)
+
+Space Complexity: 
+    O(n)  
+
+
+
+Explanations : 
+  1] Time Complexity
+      mergesort Function:
+      - The mergesort function recursively divides the array into two halves until each subarray contains a single element. This results in a binary tree structure of recursive calls.
+      - At each level of recursion, the array is divided into two halves, and the function is called twice for each half.
+      - The depth of this recursion tree is log(n) because the array is repeatedly divided in half.
+      - At each level of recursion, the merge function is called, which takes linear time, O(n), to merge two halves.
+      - Overall, the time complexity of mergesort is O(n log n).
+
+      merge Function:
+      - The merge function takes two sorted subarrays (from low to mid and from mid+1 to high) and merges them into a single sorted array.
+      - This merging process involves iterating through both subarrays linearly, resulting in a time complexity of O(n).
+
+      Combining these, the total time complexity of the merge sort algorithm is (bigger of the two is taken)
+      O(nlogn)
+
+  2] Space Complexity
+      Auxiliary Space Used in merge:
+      - The merge function uses an additional array B[50] of fixed size to temporarily store the merged elements.
+      - This array takes up O(n) space, where n is the size of the input array. However, since the array size is fixed at 50 in your implementation, the auxiliary space used is O(1). But, generally, a merge sort implementation requires O(n) space for merging.
+
+      Recursive Call Stack Space:
+      - The recursive calls in mergesort will require additional stack space. The maximum depth of recursion is log(n), so the space complexity due to recursion is O(log n).
+
+      Therefore, the total space complexity of the algorithm is:
+      - O(n) for the auxiliary array +O(logn) for the recursive calls
+      
+      Thus, the overall space complexity is O(n).
