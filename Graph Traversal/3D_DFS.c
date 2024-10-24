@@ -1,4 +1,4 @@
-//Check whether a given graph is connected or not using DFS method.
+‍‍//Check whether a given graph is connected or not using DFS method.
 #include <stdio.h>
 
 void DFS(int adj[20][20][20],int k, int u, int visited[20][20], int n);
@@ -6,16 +6,16 @@ void DFS(int adj[20][20][20],int k, int u, int visited[20][20], int n);
 int main()
 {
     int n, adj[20][20][20], i, j, visited[20][20], source;
-    int curr, z;
-    
-    printf("Enter the number of vertices of all graphs: ");
-    scanf("%d", &n);
+    int current, z;
     
     printf("Enter the number of graphs: ");
     scanf("%d", &z);
     
+    printf("Enter the number of vertices of all graphs: ");
+    scanf("%d", &n);
+    
     for(int k = 0 ; k < z ; k++){
-    printf("\nEnter the adjacency matrix %d:\n",k);
+        printf("\nEnter the adjacency matrix %d:\n",k+1);
         for (i = 1; i <= n; i++)
         {
             for (j = 1; j <= n; j++)
@@ -25,6 +25,7 @@ int main()
         }
     }
     
+    //set all visited to 0
     for (int k = 0;k<z;k++){
         for (i = 1; i <= n; i++)
         {
@@ -34,7 +35,7 @@ int main()
     
 
     for (int k = 0;k<z;k++){
-        printf("\nEnter the source node for %d matrix : ", k);
+        printf("\nEnter the source node for matrix %d : ", k+1);
         scanf("%d", &source);
 
         DFS(adj,k,source, visited, n);
@@ -44,13 +45,13 @@ int main()
             if (visited[k][i] == 0)
             {
                 printf("\nGraph is not connected\n");
-                curr = 1;
+                current = 1;
                 break;
             }
-            curr = 0;
+            current = 0;
         }
         
-        if(curr == 0){
+        if(!current){
             printf("\nGraph is connected\n");
         }
 
