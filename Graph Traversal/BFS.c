@@ -1,5 +1,4 @@
-/*Print all the nodes reachable from a given starting node in a digraph using BFS 
-method.*/
+/*Print all the nodes reachable from a given starting node in a graph using BFS method.*/
 #include<stdio.h>
 #include<conio.h>
 void BFS(int [20][20],int,int [20],int);
