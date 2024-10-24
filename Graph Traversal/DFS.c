@@ -1,3 +1,4 @@
+//Check whether a given graph is connected or not using DFS method.
 #include <stdio.h>
 
 void DFS(int adj[20][20], int u, int visited[20], int n);
