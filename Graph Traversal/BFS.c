@@ -1,24 +1,30 @@
 /*Print all the nodes reachable from a given starting node in a graph using BFS method.*/
 #include<stdio.h>
 #include<conio.h>
+
 void BFS(int [20][20],int,int [20],int);
-void main()
-{
+
+void main(){
     int n,a[20][20],i,j,visited[20],source;
-    //clrscr();
+    
     printf("Enter the number of vertices:");
-	scanf("%d",&n);
+    scanf("%d",&n);
+	
     printf("\nEnter the adjacency matrix:\n");
-	for(i=1;i<=n;i++){
-	    for(j=1;j<=n;j++)
+    for(i=1;i<=n;i++){
+	for(j=1;j<=n;j++)
             scanf("%d",&a[i][j]);
-	}
+    }
+	
     for(i=1;i<=n;i++)
         visited[i]=0;
+	
     printf("\nEnter the source node:");
-	scanf("%d",&source);
+    scanf("%d",&source);
+	
     visited[source]=1;
     BFS(a,source,visited,n);
+	
     printf("\nSource node: %d",source);
     for(i=1;i<=n;i++)
     {
@@ -43,7 +49,7 @@ void BFS(int a[20][20],int source,int visited[20],int n)
         {
             if(a[u][v]==1 && visited[v]==0)
             { 
-		        queue[++r]=v;
+		queue[++r]=v;
                 visited[v]=1;
             }
         } //for v
