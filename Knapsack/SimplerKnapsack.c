@@ -64,8 +64,70 @@ int main() {
             }
         }
     }
+    
 
     knapsack(num, weight, profit, capacity);
     
     return 0;
 }
+
+/*Fractional Knapsack Algorithm
+
+Input:
+
+n: Number of objects
+weight[]: Array of object weights
+profit[]: Array of object profits
+capacity: Knapsack maximum capacity
+
+
+Calculate Profit-to-Weight Ratio:
+
+For each object i = 0 to n-1:
+
+ratio[i] = profit[i] / weight[i]
+
+
+
+
+Sort Objects in Descending Order of Profit-to-Weight Ratio:
+
+Use descending bubble sort or quick sort
+Rearrange weight[], profit[], and ratio[] simultaneously
+Ensures most valuable items considered first
+
+
+Fractional Knapsack Selection:
+
+Initialize total_profit = 0
+Initialize result_vector[n] = {0}
+Initialize remaining_capacity = capacity
+For each object i = 0 to n-1:
+
+If weight[i] <= remaining_capacity:
+
+result_vector[i] = 1.0
+total_profit += profit[i]
+remaining_capacity -= weight[i]
+
+
+Else:
+
+result_vector[i] = remaining_capacity / weight[i]
+total_profit += result_vector[i] * profit[i]
+Break loop
+
+
+
+
+
+
+Output:
+
+Print result_vector (fraction of each object selected)
+Print total_profit
+
+
+
+Time Complexity: O(n²)
+Space Complexity: O(n)*/
