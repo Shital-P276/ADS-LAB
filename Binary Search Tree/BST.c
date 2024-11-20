@@ -23,11 +23,10 @@ void main()
     makeempty();
     while (1)
     {
-printf("\n1. Insert\n2. Delete\n3. Find\n4. Find min\n5. Find max\n6.Display\n7. 
-Exit\nEnter Your Choice : ");
-scanf("%d",&ch);
-switch(ch)
-{
+        printf("\n1. Insert\n2. Delete\n3. Find\n4. Find min\n5. Find max\n6.Display\n7.Exit\nEnter Your Choice : ");
+        scanf("%d", &ch);
+        switch (ch)
+        {
         case 1:
             printf("Enter an element : ");
             scanf("%d", &a);
@@ -71,7 +70,7 @@ switch(ch)
             exit(0);
         default:
             printf("Invalid Choice");
-}
+        }
     }
 }
 node insert(ElementType x, node t)
@@ -158,7 +157,7 @@ void display(node t, int level)
     if (t)
     {
         display(t->right, level + 1);
-        printf(“ \n”);
+        printf(" \n");
         for (i = 0; i < level; i++)
             printf(" ");
         printf("%d", t->element);
