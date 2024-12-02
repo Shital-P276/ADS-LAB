@@ -39,6 +39,14 @@ int find(int i) {
     return i;
 }
 
+// Better Approach given below as its faster & more efficient for larger trees 
+// int find(int i) {
+//     if (parent[i] == 0) return i;        // If no parent, i is root
+//     parent[i] = find(parent[i]);         // Recursively compress path
+//     return parent[i];
+// }
+
+
 // Function to union two sets
 int unionSets(int i, int j) {
     if (i != j) {
