@@ -48,7 +48,8 @@ float knapsack(Item items[], int n, int capacity)
         else
         {
             fractions[i] = capacity / items[i].weight;
-            totalValue += items[i].value * capacity;
+            totalValue += items[i].value * fractions[i];
+// totalValue += items[i].ratio * capacity;
             capacity = 0;
             break;
         }
